@@ -1,0 +1,79 @@
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body, html {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Heart besar di tengah */
+  .heart-center {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at center, #ff4d6d, #c0392b);
+    transform: rotate(-45deg);
+    border-radius: 12%;
+    box-shadow: 0 0 40px #ff4d6d;
+    cursor: pointer;
+    z-index: 30;
+    transition: transform 0.2s ease;
+    user-select: none;
+  }
+  .heart-center::before,
+  .heart-center::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at center, #ff4d6d, #c0392b);
+    border-radius: 50%;
+    top: -110px;
+    left: 0;
+  }
+  .heart-center::after {
+    left: 110px;
+    top: 0;
+  }
+  
+  .heart-center:hover {
+    transform: rotate(-45deg) scale(1.15);
+    box-shadow: 0 0 70px #ff85a1;
+  }
+  
+  /* Container untuk love kecil yang meledak */
+  .love-container {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none; /* jangan ganggu klik */
+    overflow: hidden;
+    z-index: 10;
+  }
+  
+  /* Love kecil */
+  .heart-particle {
+    position: absolute;
+    background: radial-gradient(circle at center, #ff85a1, #ff4d6d);
+    transform: rotate(-45deg);
+    border-radius: 12%;
+    opacity: 0.9;
+    box-shadow: 0 0 10px #ff4d6d;
+    user-select: none;
+    will-change: transform, opacity;
+  }
+  .heart-particle::before,
+  .heart-particle::after {
+    content: "";
+    position: absolute;
+    background: radial-gradient(circle at center, #ff85a1, #ff4d6d);
+    border-radius: 50%;
+  }
+  .heart-particle::before { top: -50%; left: 0; width: 100%; height: 100%; }
+  .heart-particle::after { top: 0; left: 50%; width: 100%; height: 100%; }
+  
